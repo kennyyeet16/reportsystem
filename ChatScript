@@ -1,0 +1,7 @@
+local player = game.Players.LocalPlayer
+
+player.Chatted:Connect(function(msg)
+	if msg == "!report" then
+		script.Parent.Tab.Visible = true
+	end
+end)
