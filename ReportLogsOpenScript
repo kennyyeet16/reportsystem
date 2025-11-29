@@ -1,0 +1,11 @@
+local player = game.Players.LocalPlayer
+
+local admins = {"kren12341"}
+
+player.Chatted:Connect(function(msg)
+	if msg == "!reportlogs" then
+		--if table.find(admins, player.Name) then EDITED FOR HIDDENDEVS
+		script.Parent.Visible = true
+		--end
+	end
+end)
