@@ -1,0 +1,35 @@
+
+
+for i,v in pairs(game.Players:GetChildren()) do
+	local newPlayerButton = script.Parent.Parent.Parent.PlayerToSelectButton:Clone()
+	newPlayerButton.Parent = script.Parent
+	newPlayerButton.Text = v.Name
+	newPlayerButton.Name = v.Name
+	newPlayerButton.Visible = true
+
+	newPlayerButton.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Body.SelectPlayer.SelectedPlayer.Text = "Selected Player: "..newPlayerButton.Text
+		script.Parent.Visible = false
+	end)
+end
+
+
+game.Players.PlayerAdded:Connect(function(plr)
+	local newPlayerButton = script.Parent.Parent.Parent.PlayerToSelectButton:Clone()
+	newPlayerButton.Parent = script.Parent
+	newPlayerButton.Text = plr.Name
+	newPlayerButton.Name = plr.Name
+	newPlayerButton.Visible = true
+	
+	newPlayerButton.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Body.SelectPlayer.SelectedPlayer.Text = "Selected Player: "..newPlayerButton.Text
+		script.Parent.Visible = false
+	end)
+end)
+
+game.Players.PlayerRemoving:Connect(function(plr)
+	local playerButton = script.Parent:FindFirstChild(plr.Name)
+	if playerButton then
+		playerButton:Destroy()
+	end
+end)
