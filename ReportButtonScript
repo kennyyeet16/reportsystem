@@ -1,0 +1,4 @@
+script.Parent.MouseButton1Click:Connect(function()
+	local playerreported = string.split(script.Parent.Parent.SelectPlayer.SelectedPlayer.Text, " ")
+	game.ReplicatedStorage.ReportSystem.ReportRemote:FireServer(playerreported[3], script.Parent.Parent.Parent.ReasonTitle.Reason.Text)
+end)
