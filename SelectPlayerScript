@@ -1,0 +1,11 @@
+local visible = false
+
+script.Parent.MouseButton1Click:Connect(function()
+	if not visible then
+		visible = true
+		script.Parent.Parent.Parent.ListOfPlayers.Visible = true
+	elseif visible then
+		visible = false
+		script.Parent.Parent.Parent.ListOfPlayers.Visible = false
+	end
+end)
