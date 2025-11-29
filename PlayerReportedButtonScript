@@ -1,0 +1,8 @@
+script.Parent.MouseButton1Click:Connect(function()
+	script.Parent.Parent.Parent.Reason.Text = "Reason: ".. script.Parent:GetAttribute("Reason")
+end)
+
+script.Parent.MouseButton2Click:Connect(function()
+	script.Parent.Parent.Parent.Reason.Text = "Reason: "
+	script.Parent:Destroy()
+end)
