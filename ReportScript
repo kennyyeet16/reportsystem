@@ -1,0 +1,15 @@
+local replicatedstorage = game:GetService("ReplicatedStorage")
+local reportremote = replicatedstorage.ReportSystem.ReportRemote
+
+local admins = {"kren12341"}
+
+reportremote.OnServerEvent:Connect(function(player, playerreported, reason)
+	for i,v in pairs(game.Players:GetChildren()) do
+		--if table.find(admins, v.Name) then EDITED FOR HIDDENDEVS
+			local newReport = script.PlayerReported:Clone()
+			newReport.Parent = v.PlayerGui.ReportSystem.SeeReports.Tab.ListOfReports
+			newReport.Text = playerreported
+			newReport:SetAttribute("Reason", reason)
+			--end
+	end
+end)
